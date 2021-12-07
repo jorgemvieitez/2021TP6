@@ -9,5 +9,7 @@ public class PruebasPt2 {
         Tag[] a = Tag.ocurrenciaTagsFichero("data/out3.txt", tags);
         Tag[] b = Tag.ordenarTagsPorOcurrencias(a);
         Tag.escribeTagPopulares(b, 10);
+
+        // Tarea 7
     }
 }

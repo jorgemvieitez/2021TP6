@@ -12,7 +12,13 @@ Histórico de cambios: ???
 import java.util.ArrayList;
 
 public class URL {
-    public static ArrayList<String> porUsuario() {
+    /**
+     * 
+     * @param filename  El nombre del archivo a procesar
+     * @param username  El nombre de usuario cuyos URLs queremos obtener
+     * @return          Listado de URLs encontradas en el fichero
+     */
+    public static ArrayList<String> porUsuario(String filename, String username) {
         return null;
     }
 }

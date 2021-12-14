@@ -283,10 +283,16 @@ public class ProcesarTweets {
 		System.out.println("Nombre del fichero salida: ");
 		String nombreOut = entrada.nextLine();
 
+		// Tarea 1
 		filtroContenido(nombreIn, "temp1.txt");
+
+		// Tarea 2
 		filtroEstructura("temp1.txt", "temp2.txt");
+
+		// Tarea 3
 		compactaBlancos("temp2.txt", nombreOut);
 
+		// Tarea 4
 		ArrayList<String> tags = extraccionTagsFichero(nombreOut);
 		if (tags.size() > 0) {
 			System.out.println("------------------------------------------------");
@@ -297,6 +303,26 @@ public class ProcesarTweets {
 			}
 			System.out.println();
 		}
+
+		// Tarea 6
+        Tag[] registros = Tag.ocurrenciaTagsFichero(nombreOut, tags);
+        Tag[] tagsOrdenados = Tag.ordenarTagsPorOcurrencias(registros);
+        Tag.escribeTagPopulares(tagsOrdenados, 10);
+
+        // Tarea 7
+        ArrayList<String> urlUsuario = Direcciones.porUsuario(nombreOut, "RTVCes");
+		for (int i = 0; i < 10 && i < urlUsuario.size(); i++) {
+			System.out.println(" - " + urlUsuario.get(i));
+		}
+
+        // Tarea 8
+        ArrayList<String> urlMeses = Direcciones.porMeses(nombreOut, 10, 11);
+		for (int i = 0; i < 10 && i < urlMeses.size(); i++) {
+			System.out.println(" - " + urlMeses.get(i));
+		}
+
+        // Tarea 9
+        Direcciones.abrirURL(urlUsuario.get(0));
 
 		entrada.close();
 

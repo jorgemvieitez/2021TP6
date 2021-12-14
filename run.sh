@@ -4,7 +4,9 @@ while [ -n "$1" ]; do
 
 	case "$1" in
 
-	-c) javac -d class src/*;;
+	-l) export A="$A -Xlint:unchecked";;
+
+	-c) javac $A -d class src/*;;
 
 	--)
 		shift

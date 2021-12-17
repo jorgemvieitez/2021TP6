@@ -215,7 +215,7 @@ public class Direcciones {
             URI uri = new URI(protocolo, host, archivo, null);
             Desktop desktop = Desktop.getDesktop();
             desktop.browse(uri);
-        } catch (Exception ex) {
+        } catch (URISyntaxException | IOException ex) {
             System.out.println("Error en Direcciones.abrirURL:" + ex);
         }
     }

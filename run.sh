@@ -23,4 +23,4 @@ while [ -n "$1" ]; do
 
 done
 
-java -cp class $1
+java -cp class "$@"

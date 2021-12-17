@@ -61,10 +61,10 @@ public class ProcesarTweets {
 			}
 			in.close();
 			out.close();
-			System.out.println("------------------------------------------------");
+			separador();
 			System.out.println("(Tarea 1) Estadísticas del filtro por contenido:");
 			System.out.printf("Número de caracteres sustituidos = %d\n", cFiltrados);
-			System.out.println("------------------------------------------------");
+			separador();
 		} catch (IOException ioex) {
 			System.out.println("Error en filtroContenido - IOException: " + ioex);
 		}
@@ -96,10 +96,10 @@ public class ProcesarTweets {
 			in.close();
 			out.close();
 
-			System.out.println("------------------------------------------------");
+			separador();
 			System.out.println("(Tarea 2) Estadísticas del filtro por estructura:");
 			System.out.printf("Número de tweets incorrectos eliminados = %d\n", cFiltrados);
-			System.out.println("------------------------------------------------");
+			separador();
 		} catch (IOException ioex) {
 			System.out.println("Error en filtroEstructura - IOException: " + ioex);
 		}
@@ -145,10 +145,10 @@ public class ProcesarTweets {
 			in.close();
 			out.close();
 
-			System.out.println("------------------------------------------------");
+			separador();
 			System.out.println("(Tarea 3) Estadísticas del filtro de secuencias:");
 			System.out.printf("Número de espacios en blanco compactados = %d\n", cFiltrados);
-			System.out.println("------------------------------------------------");
+			separador();
 		} catch (IOException ioex) {
 			System.out.println("Error en filtroEstructura - IOException: " + ioex);
 		}
@@ -267,10 +267,10 @@ public class ProcesarTweets {
 			}
 			in.close();
 
-			System.out.println("------------------------------------------------");
+			separador();
 			System.out.println("(Tarea 4) Estadísticas de la extracción de tags:");
 			System.out.printf("Número de tags diferentes extraídos = %d\n", tags.size());
-			System.out.println("------------------------------------------------");
+			separador();
 			return tags;
 		} catch (IOException ioex) {
 			System.out.println("Error en extraccionTagsFichero - IOException: " + ioex);
@@ -302,12 +302,14 @@ public class ProcesarTweets {
 		// Tarea 4
 		ArrayList<String> tags = extraccionTagsFichero(nombreOut);
 		if (tags.size() > 0) {
+			separador();
 			System.out.println("Número de tags diferentes: " + tags.size());
 
-			for (int i = 0; i < 10 && i < tags.size(); i++) {
+			for (int i = 0; i < tags.size(); i++) {
 				System.out.printf("%s, ",tags.get(i));
 			}
 			System.out.println();
+			separador();
 		}
 
 		// Tarea 6
@@ -317,13 +319,13 @@ public class ProcesarTweets {
 
         // Tarea 7
         ArrayList<String> urlUsuario = Direcciones.porUsuario(nombreOut, "RTVCes");
-		for (int i = 0; i < 10 && i < urlUsuario.size(); i++) {
+		for (int i = 0; i < urlUsuario.size(); i++) {
 			System.out.println(" - " + urlUsuario.get(i));
 		}
 
         // Tarea 8
         ArrayList<String> urlMeses = Direcciones.porMeses(nombreOut, 10, 11);
-		for (int i = 0; i < 10 && i < urlMeses.size(); i++) {
+		for (int i = 0; i < urlMeses.size(); i++) {
 			System.out.println(" - " + urlMeses.get(i));
 		}
 

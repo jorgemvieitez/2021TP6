@@ -2,7 +2,7 @@
 Nombre del fichero: Tag.java
 Autor: Jorge Miguel Moreno Vieitez
 Titulación/Grupo: 912
-Fecha: 07/12/2021
+Fecha: 07/12/2021 - 17/12/2021
 Histórico de cambios: ???
 */
 

@@ -79,13 +79,13 @@ public class Direcciones {
 
             in.close();
 
-            System.out.println("------------------------------------------------");
+            ProcesarTweets.separador();
 			System.out.println("(Tarea 7) Estadísticas del procesado de URLs por usuario:");
 			System.out.printf("Nombre del usuario = %s\n", username);
 			System.out.printf("Número de tweets publicados por el usuario = %d\n", tweetsUsuario);
 			System.out.printf("Número de URLs diferentes encontradas = %d\n", out.size());
 			System.out.printf("Número de URLs repetidas = %d\n", repetidas);
-			System.out.println("------------------------------------------------");
+			ProcesarTweets.separador();
 
         } catch (IOException ioex) {
             System.out.println("Error en Direcciones.porUsuario" + ioex);
@@ -165,12 +165,12 @@ public class Direcciones {
 
             in.close();
 
-            System.out.println("------------------------------------------------");
+            ProcesarTweets.separador();
 			System.out.println("(Tarea 8) Estadísticas del procesado de URLs por periodo de tiempo:");
 			System.out.printf("Rango de meses = %d - %d\n", inicio, fin);
 			System.out.printf("Número de URLs diferentes encontradas = %d\n", out.size());
 			System.out.printf("Número de URLs repetidas = %d\n", repetidas);
-			System.out.println("------------------------------------------------");
+			ProcesarTweets.separador();
 
         } catch (IOException ioex) {
             System.out.println("Error en Direcciones.porMeses" + ioex);
@@ -190,6 +190,7 @@ public class Direcciones {
      * @param direccion  La dirección web a abrir
      */
     public static void abrirURL(String direccion) {
+        ProcesarTweets.separador();
         System.out.println("(Tarea 9) Abriendo dirección web " + direccion);
         
         // Separar protocolo de resto de dirección como tal

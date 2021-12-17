@@ -5,7 +5,7 @@ while [ -n "$1" ]; do
 
 	case "$1" in
 
-    -a) export B="echo -e \"data/tweets-100tw.txt\ndata/out3.txt\"";;
+    -a) export B="echo -e data/tweets-100tw.txt\\ndata/out3.txt";;
 
     -r) export C="ProcesarTweets";;
 

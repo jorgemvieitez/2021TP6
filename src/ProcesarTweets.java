@@ -12,7 +12,14 @@ import java.util.ArrayList;
 public class ProcesarTweets {
 
 	/**
-	 * filtroContenido: elimina del fichero los caracteres no deseables
+	 * Escribe por pantalla una línea separadora
+	 */
+	public static void separador() {
+		System.out.println("------------------------------------------------");
+	}
+
+	/**
+	 * Elimina del fichero los caracteres no deseables
 	 * 
 	 * @param input   Nombre del fichero de entrada a procesar
 	 * @param output  Nombre del fichero resultado
@@ -64,8 +71,7 @@ public class ProcesarTweets {
 	}
 
 	/**
-	 * filtroEstructura: elimina del fichero los tweets que no constan de 4 campos
-	 * de información
+	 * Elimina del fichero los tweets que no constan de 4 campos de información
 	 * 
 	 * @param input   Nombre del fichero de entrada a procesar
 	 * @param output  Nombre de fichero de resultado
@@ -100,8 +106,8 @@ public class ProcesarTweets {
 	}
 
 	/**
-	 * compactaBlancos: sustituye dos o más caracteres ' ' consecutivos por una sola
-	 * ocurrencia
+	 * Reemplaza las ocurrencias de dos o más espacios en blanco seguidos
+	 * con un solo carácter de espacio
 	 * 
 	 * @param input   Nombre del fichero de entrada a procesar
 	 * @param output  Nombre del fichero de resultado
@@ -149,8 +155,7 @@ public class ProcesarTweets {
 	}
 
 	/**
-	 * numTagLinea: devuelve el número de tags encontrados en la línea de texto de
-	 * entrada
+	 * Devuelve el número de tags encontrados en la línea de texto dada
 	 * 
 	 * @param linea  Línea de texto a procesar
 	 * @return 		 El número de tags encontrados
@@ -176,8 +181,7 @@ public class ProcesarTweets {
 	}
 
 	/**
-	 * extraccionTagLinea: devuelve los tag (como String) encontrados en la línea de
-	 * texto de entrada
+	 * Devuelve los tags (String) encontrados en la línea dada
 	 * 
 	 * @param linea  Línea de texto a procesar
 	 * @return 		 Los tags encontrados (o el valor null si no encuentra ninguno)
@@ -215,7 +219,7 @@ public class ProcesarTweets {
 	}
 
 	/**
-	 * existeTag: chequea si un tag está contenido en un conjunto de tags
+	 * Comprueba si un tag está contenido en un conjunto de Strings
 	 * 
 	 * @param tags  Estructura que contiene el conjunto de tags
 	 * @param tag   Tag a buscar
@@ -232,8 +236,7 @@ public class ProcesarTweets {
 	}
 
 	/**
-	 * extraccionTagsFichero: devuelve todos los tags diferentes encontrados en un
-	 * fichero de texto de entrada
+	 * Devuelve todos los tags diferentes encontrados en un fichero de texto de entrada
 	 * 
 	 * @param input  Nombre del fichero a procesar
 	 * @return 		 Estructura ArrayList que contiene los tags
@@ -275,12 +278,16 @@ public class ProcesarTweets {
 		}
 	}
 
-	// Función de pruebas - no requiere documentación
+	/**
+	 * Función principal del programa. No diseñada para ser llamada desde otra función.
+	 * 
+	 * @param args  Los argumentos dados al programa
+	 */
 	public static void main(String[] args) {
 		Scanner entrada = new Scanner(System.in);
-		System.out.println("Nombre del fichero fuente (tweets): ");
+		System.out.print("¿Nombre del fichero fuente? (tweets):\n > ");
 		String nombreIn = entrada.nextLine();
-		System.out.println("Nombre del fichero salida: ");
+		System.out.print("¿Nombre del fichero salida? (procesado)\n > ");
 		String nombreOut = entrada.nextLine();
 
 		// Tarea 1
@@ -295,10 +302,9 @@ public class ProcesarTweets {
 		// Tarea 4
 		ArrayList<String> tags = extraccionTagsFichero(nombreOut);
 		if (tags.size() > 0) {
-			System.out.println("------------------------------------------------");
 			System.out.println("Número de tags diferentes: " + tags.size());
 
-			for (int i = 0; i < tags.size(); i++) {
+			for (int i = 0; i < 10 && i < tags.size(); i++) {
 				System.out.printf("%s, ",tags.get(i));
 			}
 			System.out.println();

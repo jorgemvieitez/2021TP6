@@ -1,8 +1,8 @@
 /*
-Nombre del fichero: URL.java
+Nombre del fichero: Direcciones.java
 Autor: Jorge Miguel Moreno Vieitez
 Titulación/Grupo: 912
-Fecha: 07/12/2021
+Fecha: 07/12/2021 - 17/12/2021
 Histórico de cambios: ???
 */
 
@@ -190,9 +190,7 @@ public class Direcciones {
      * @param direccion  La dirección web a abrir
      */
     public static void abrirURL(String direccion) {
-		System.out.println("------------------------------------------------");
         System.out.println("(Tarea 9) Abriendo dirección web " + direccion);
-	    System.out.println("------------------------------------------------");
         
         // Separar protocolo de resto de dirección como tal
         String protocolo = direccion.split("://")[0];

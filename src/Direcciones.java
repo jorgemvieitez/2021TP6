@@ -3,7 +3,9 @@ Nombre del fichero: Direcciones.java
 Autor: Jorge Miguel Moreno Vieitez
 Titulación/Grupo: 912
 Fecha: 07/12/2021 - 17/12/2021
-Histórico de cambios: ???
+
+Este archivo contiene todo lo relativo a los URLs. Se ha movido a una
+clase diferente para mejorar la legibilidad del proyecto.
 */
 
 import java.awt.Desktop;
@@ -14,9 +16,6 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
-
-// Este archivo contiene todo lo relativo a los URLs. Se ha movido a una
-// clase diferente para mejorar la legibilidad del proyecto.
 
 public class Direcciones {
 

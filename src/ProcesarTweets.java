@@ -3,7 +3,6 @@ Nombre del fichero: ProcesarTweets.java
 Autor: Jorge Miguel Moreno Vieitez
 Titulación/Grupo: 912
 Fecha: 25/11/2021 - ??/01/2022
-Histórico de cambios: ???
 */
 import java.util.Scanner;
 import java.io.*;

@@ -1,0 +1,15 @@
+1- El apartado del histórico de cambios no se ha rellenado en las cabeceras de los archivos. Sin embargo, en el propio control de dedicación se puede observar el progreso de cada una de las tareas, ya que ha sido anotado en el apartado de observaciones.
+
+2- Todo lo relativo a direcciones URL ha sido movido al archivo Direcciones.java para reducir el tamaño de la clase ProcesarTweets. No se ha hecho lo mismo con algunas funciones de procesado de tags
+
+3- Las funciones/métodos creadas para resolver las tareas son:
+  Tarea 1: ProcesarTweets.filtroContenido
+  Tarea 2: ProcesarTweets.filtroEstructura
+  Tarea 3: ProcesarTweets.compactaBlancos
+  Tarea 4: ProcesarTweets.numTagLinea, ProcesarTweets.extraccionTagLinea, ProcesarTweets.existeTag, ProcesarTweets.extraccionTagsFichero
+  Tarea 6: Tag.ocurrenciaTagsFichero, Tag.ordenarTagsPorOcurrencias, Tag.escribeTagsPopulares
+  Tarea 7: Direcciones.porUsuario
+  Tarea 8: Direcciones.porMeses
+  Tarea 9: Direcciones.abrirURL
+  Tareas 5, 10, 13: ProcesarTweets.main
+En todo caso siguen la especificación dada por el enunciado, con la excepción de cambiar algunos nombres de variables.

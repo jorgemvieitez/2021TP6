@@ -180,7 +180,7 @@ public class Tag {
      * @param n    Número de tags que mostrar
      */
     public static void escribeTagPopulares(Tag[] tags, int n) {
-        System.out.printf("(Tarea 6) Los %d tags más populares son:\n", n);
+        System.out.printf("Los %d tags más populares son:\n", n);
 
         for (int i = 0; i < n; i++) {
             System.out.println(" - " + tags[i].toString());

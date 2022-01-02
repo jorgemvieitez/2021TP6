@@ -277,7 +277,7 @@ public class ProcesarTweets {
 			return tags;
 		} catch (IOException ioex) {
 			System.out.println("Error en extraccionTagsFichero - IOException: " + ioex);
-			return null;
+			return new ArrayList<String>();
 		}
 	}
 

@@ -119,6 +119,9 @@ public class Tag {
                 String texto = linea.split(";")[3];
                 String[] tagsLinea = ProcesarTweets.extraccionTagLinea(texto);
 
+                if (tagsLinea == null)
+                    continue;
+
                 // Por cada tag en la línea...
                 for (int i = 0; i < tagsLinea.length; i++) {
 

@@ -116,27 +116,30 @@ public class ProcesarTweets {
 			Scanner in = new Scanner(new FileReader(input));
 			PrintWriter out = new PrintWriter(new FileWriter(output));
 			int cFiltrados = 0;
+			int secCompactadas = 0;
 
 			out.println(in.nextLine()); // la cabecera no es necesaria filtrar, por lo que se pasa tal y como está 
 
 			while (in.hasNext()) {
 				String linea = in.nextLine();
-				boolean esEspacio = false; // Si el último carácter ha sido un espacio, estará en true
+				int lSecuencia = 0; // Longitud de la secuencia de espacios actual
 
 				for (int i = 0; i < linea.length(); i++) {
 					if (linea.charAt(i) == ' ') {
-						if (!esEspacio) {
+						if (lSecuencia == 0) {
 							out.print(linea.charAt(i));
-							esEspacio = true;
 						}
 						// Si el último carácter ha sido un espacio, este se ignora
 						else {
+							if (lSecuencia == 1)   // Se tiene que comprobar en el segundo carácter, ya que en
+								secCompactadas++;  // caso contrario puede llevar a falsos positivos/negativos
 							cFiltrados++;
 						}
+						lSecuencia++;
 					}
 					else {
 						out.print(linea.charAt(i));
-						esEspacio = false;
+						lSecuencia = 0;
 					}
 				}
 				out.println();
@@ -147,6 +150,7 @@ public class ProcesarTweets {
 			separador();
 			System.out.println("(Tarea 3) Estadísticas del filtro de secuencias:");
 			System.out.printf("Número de espacios en blanco compactados = %d\n", cFiltrados);
+			System.out.printf("Número de secuencias compactadas = %d\n", secCompactadas);	
 			separador();
 		} catch (IOException ioex) {
 			System.out.println("Error en filtroEstructura - IOException: " + ioex);

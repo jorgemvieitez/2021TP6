@@ -7,6 +7,8 @@ while [ -n "$1" ]; do
 
     -a) export B="echo -e data/tweets-100tw.txt\\ndata/out3.txt";;
 
+	-A) export B="echo -e data/tweets-PruebaP1.txt\\ndata/out-PruebaP1.txt";;
+
     -r) export C="ProcesarTweets";;
 
     -p) export C="Pruebas";;

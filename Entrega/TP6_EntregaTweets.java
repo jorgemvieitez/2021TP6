@@ -314,7 +314,7 @@ public class TP6_EntregaTweets {
                 // Obtener los tags que hay en cada línea
                 String linea = in.nextLine();
                 String texto = linea.split(";")[3];
-                String[] tagsLinea = ProcesarTweets.extraccionTagLinea(texto);
+                String[] tagsLinea = extraccionTagLinea(texto);
 
                 if (tagsLinea == null)
                     continue;
@@ -444,13 +444,13 @@ public class TP6_EntregaTweets {
 
             in.close();
 
-            ProcesarTweets.separador();
+            separador();
 			System.out.println("(Tarea 7) Estadísticas del procesado de URLs por usuario:");
 			System.out.printf("Nombre del usuario = %s\n", userName);
 			System.out.printf("Número de tweets publicados por el usuario = %d\n", tweetsUsuario);
 			System.out.printf("Número de URLs diferentes encontradas = %d\n", out.size());
 			System.out.printf("Número de URLs repetidas = %d\n", repetidas);
-			ProcesarTweets.separador();
+			separador();
 
         } catch (IOException ioex) {
             System.out.println("Error en Direcciones.porUsuario" + ioex);
@@ -530,12 +530,12 @@ public class TP6_EntregaTweets {
 
             in.close();
 
-            ProcesarTweets.separador();
+            separador();
 			System.out.println("(Tarea 8) Estadísticas del procesado de URLs por periodo de tiempo:");
 			System.out.printf("Rango de meses = %d - %d\n", inicio, fin);
 			System.out.printf("Número de URLs diferentes encontradas = %d\n", out.size());
 			System.out.printf("Número de URLs repetidas = %d\n", repetidas);
-			ProcesarTweets.separador();
+			separador();
 
         } catch (IOException ioex) {
             System.out.println("Error en Direcciones.porMeses" + ioex);
@@ -553,7 +553,7 @@ public class TP6_EntregaTweets {
      * @param direccionWeb  La dirección web a abrir
      */
     public static void abrirEnlaceWeb(String direccionWeb) {
-        ProcesarTweets.separador();
+        separador();
         System.out.println("(Tarea 9) Abriendo dirección web " + direccionWeb);
         
         // Separar protocolo de resto de dirección como tal
@@ -624,10 +624,10 @@ public class TP6_EntregaTweets {
             }
             temp.close();
 
-            ArrayList<String> tags = ProcesarTweets.extraccionTagsFichero(ARCHIVO_TEMPORAL);
-            Tag[] tags_ocurrencias = Tag.ocurrenciaTagsFichero(ARCHIVO_TEMPORAL, tags);
-            Tag[] tags_ordenados = Tag.ordenarTagsPorOcurrencias(tags_ocurrencias);
-            Tag.escribeTagPopulares(tags_ordenados, 5);
+            ArrayList<String> tags = extraccionTagsFichero(ARCHIVO_TEMPORAL);
+            Tag[] tags_ocurrencias = ocurrenciaTagsFichero(ARCHIVO_TEMPORAL, tags);
+            Tag[] tags_ordenados = ordernarTagsPorOcurrencias(tags_ocurrencias);
+            escribeTagPopulares(tags_ordenados, 5);
 
         } catch (IOException e) {
             System.out.println("Error en analisisTagMensual: " + e);
@@ -678,7 +678,7 @@ public class TP6_EntregaTweets {
                     String linea = file.nextLine();
                     int mes = Integer.parseInt(linea.split(";")[0].split("-")[1]);
                     String tweet = linea.split(";")[3];
-                    String[] tags = ProcesarTweets.extraccionTagLinea(tweet);
+                    String[] tags = extraccionTagLinea(tweet);
                     ocurrencias[mes - 1] += cuentaTag(tags, tag);
                 }
             }

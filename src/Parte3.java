@@ -59,6 +59,66 @@ public class Parte3 {
         }
     }
 
+    /**
+     * Comprueba cuántas veces un tag está contenido en un conjunto de Strings.
+     * Basado en existeTag
+     * 
+     * @param tags Vector de tags (Strings)
+     * @param tag  Tag a buscar
+     * @return Número de veces que aparece el tag especificado en el conjunto
+     */
+    public static int cuentaTag(String[] tags, String tag) {
+        int num = 0;
+        for (int i = 0; i < tags.length; i++) {
+            if (tag.equalsIgnoreCase(tags[i])) {
+                num++;
+            }
+        }
+        return num;
+    }
+
+    /**
+     * Escribe por pantalla un histograma que contiene cuánto se usó un determinado
+     * tag
+     * en diferentes meses.
+     * 
+     * @param files Vector de nombres de ficheros (los cuales contienen tweets)
+     * @param tag   Tag a buscar
+     */
+    public static void histogramaTag(String[] files, String tag) {
+        // Aquí se almacenan las ocurrencias por mes
+        int[] ocurrencias = new int[12];
+        for (int i = 0; i < 12; i++) {
+            ocurrencias[i] = 0;
+        }
+
+        // Leer los archivos y separar ocurrencias por meses
+        try {
+            for (int i = 0; i < files.length; i++) {
+                Scanner file = new Scanner(new FileReader(files[i]));
+
+                file.nextLine(); // Cabecera
+
+                while (file.hasNext()) {
+                    String linea = file.nextLine();
+                    int mes = Integer.parseInt(linea.split(";")[0].split("-")[1]);
+                    String tweet = linea.split(";")[3];
+                    String[] tags = ProcesarTweets.extraccionTagLinea(tweet);
+                    ocurrencias[mes - 1] += cuentaTag(tags, tag);
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Error en histogramaTag: " + e);
+            return;
+        }
+
+        // Mostrar histograma por pantalla
+        final String[] MESES = { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Agosto", "Septiembre",
+                "Octubre", "Noviembre", "Diciembre" };
+    }
+
     public static void main(String[] args) {
+        String[] files = { "data/outpt1.txt" };
+        histogramaTag(files, "#lapalmaeruption");
     }
 }

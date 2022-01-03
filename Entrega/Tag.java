@@ -5,11 +5,6 @@ Autor: Jorge Miguel Moreno Vieitez
 Titulación/Grupo: 912 (Grado en Ingenierías y Servicios de Telecomunicación)
 */
 
-import java.util.Scanner;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-
 /**
  * Registro que almacena el valor textual de un tag y el número de veces que ha
  * aparecido en un texto

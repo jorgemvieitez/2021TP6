@@ -48,7 +48,6 @@ public class Parte3 {
             }
             temp.close();
 
-            // TODO: cuenta esto como ficheros de entrada?? comprobar
             ArrayList<String> tags = ProcesarTweets.extraccionTagsFichero(ARCHIVO_TEMPORAL);
             Tag[] tags_ocurrencias = Tag.ocurrenciaTagsFichero(ARCHIVO_TEMPORAL, tags);
             Tag[] tags_ordenados = Tag.ordenarTagsPorOcurrencias(tags_ocurrencias);
@@ -79,8 +78,7 @@ public class Parte3 {
 
     /**
      * Escribe por pantalla un histograma que contiene cuánto se usó un determinado
-     * tag
-     * en diferentes meses.
+     * tag en diferentes meses.
      * 
      * @param files Vector de nombres de ficheros (los cuales contienen tweets)
      * @param tag   Tag a buscar
@@ -93,6 +91,7 @@ public class Parte3 {
         }
 
         // Leer los archivos y separar ocurrencias por meses
+
         try {
             for (int i = 0; i < files.length; i++) {
                 Scanner file = new Scanner(new FileReader(files[i]));
@@ -113,12 +112,25 @@ public class Parte3 {
         }
 
         // Mostrar histograma por pantalla
-        final String[] MESES = { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Agosto", "Septiembre",
+
+        final String[] MESES = { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre",
                 "Octubre", "Noviembre", "Diciembre" };
+        System.out.println("Tag: " + tag);
+        for (int i = 0; i < 12; i++) {
+            System.out.printf("%s (%d): ", MESES[i], ocurrencias[i]);
+
+            for (int j = 0; j < ocurrencias[i]; j++)
+                if (j % 5 == 1) // Como es un asterisco por cada 5 y redondeando hacia arriba,
+                                // cada vez que sobrepasa un múltiplo de 5 se le añade 1 asterisco
+                                // al histograma
+                    System.out.print("*");
+
+            System.out.println();
+        }
     }
 
     public static void main(String[] args) {
         String[] files = { "data/outpt1.txt" };
-        histogramaTag(files, "#lapalmaeruption");
+        histogramaTag(files, args[0]);
     }
 }

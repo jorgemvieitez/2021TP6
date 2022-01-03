@@ -229,7 +229,7 @@ public class ProcesarTweets {
 	 * @return 	    Si el tag especificado está contenido en el conjunto
 	 */
 	public static boolean existeTag(ArrayList<String> tags, String tag) {
-		// No se usa .contains() porque no ignora la capitalización del tag
+		// No se usa .contains() porque no ignora las mayúsculas del tag
 		for (int i = 0; i < tags.size(); i++) {
 			if (tag.equalsIgnoreCase(tags.get(i))) {
 				return true;

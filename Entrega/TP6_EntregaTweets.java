@@ -453,7 +453,7 @@ public class TP6_EntregaTweets {
 			separador();
 
         } catch (IOException ioex) {
-            System.out.println("Error en Direcciones.porUsuario" + ioex);
+            System.out.println("Error en porUsuario" + ioex);
         }
         return out;
     }
@@ -486,7 +486,7 @@ public class TP6_EntregaTweets {
 
             // Si uno de los dos está fuera de rango, error
             else if (inicio < 1 || inicio > 12 || fin < 0 || fin > 12) {
-                System.out.println("Error en Direcciones.porMeses: Rango de meses inválido");
+                System.out.println("Error en porMeses: Rango de meses inválido");
                 return out;
             }
 
@@ -538,7 +538,7 @@ public class TP6_EntregaTweets {
 			separador();
 
         } catch (IOException ioex) {
-            System.out.println("Error en Direcciones.porMeses" + ioex);
+            System.out.println("Error en porMeses" + ioex);
         }
         return out;
     }
@@ -578,7 +578,7 @@ public class TP6_EntregaTweets {
             Desktop desktop = Desktop.getDesktop();
             desktop.browse(uri);
         } catch (URISyntaxException | IOException ex) {
-            System.out.println("Error en Direcciones.abrirURL:" + ex);
+            System.out.println("Error en abrirURL:" + ex);
         }
     }
 
